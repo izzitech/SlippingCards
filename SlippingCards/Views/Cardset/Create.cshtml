@@ -1,0 +1,33 @@
+﻿@model SlippingCards.Models.Cardset
+
+@{
+    ViewData["Title"] = "Create Cardset";
+}
+
+<div class="container">
+    <h1>@Model.Name</h1>
+        @foreach(var section in Model.Sections)
+        {
+            <section>
+                <h1 class="section-title">Creational Patterns</h1>
+                <div class="section-container">
+                    @foreach (var card in section.Cards)
+                    {
+                        <div class="card">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <div class="card-img">
+                                        <h1>@card.Image</h1>
+                                    </div>
+                                    <div class="card-title">@card.Title.</div>
+                                </div>
+                                <div class="card-back">
+                                    <div class="card-text">@card.Text</div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </section>
+        }
+</div>
