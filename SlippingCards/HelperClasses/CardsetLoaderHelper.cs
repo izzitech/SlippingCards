@@ -14,7 +14,6 @@ namespace SlippingCards.HelperClasses
             string lastLine = "";
             string thisLine = "";
             var lines = new StringReader(text);
-
             var cardSet = new Cardset();
 
             while ((thisLine = lines.ReadLine()) != null)
@@ -27,8 +26,18 @@ namespace SlippingCards.HelperClasses
                 {
                     var newSection = new Section()
                     {
-                        Title = lastLine
+                        Title = lastLine,
+                        Cards = new List<Card>(),
                     };
+                    if(cardSet.Sections == null)
+                    {
+                        cardSet.Sections = new List<Section>();
+                        newSection.Id = 1;
+                    }
+                    else
+                    {
+                        newSection.Id = cardSet.Sections.Last().Id + 1;
+                    }
                     cardSet.Sections.Add(newSection);
                 }
                 if (thisLine.Contains(':'))

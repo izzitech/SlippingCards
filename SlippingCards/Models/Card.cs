@@ -12,10 +12,26 @@ namespace SlippingCards.Models
         public string Title { get; set; }
         public string Text { get; set; }
 
+        public Card() { }
+
         public Card(string card)
         {
-            Title = card.Split(':')[0];
-            Text = card.Split(':')[1];
+            Image = "🗃";
+            Title = card.Split(':')[0].Trim();
+            Text = card.Split(':')[1].Trim();
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || !obj.GetType().Equals(typeof(Card))) return false;
+            Card cardToCompare = (Card)obj;
+
+            bool titleEquals = Title.Equals(cardToCompare.Title);
+            bool imageEquals = Image.Equals(cardToCompare.Image);
+            bool textEquals = Text.Equals(cardToCompare.Text);
+            bool areEqual = titleEquals && imageEquals && textEquals;
+
+            return areEqual;
         }
     }
 }

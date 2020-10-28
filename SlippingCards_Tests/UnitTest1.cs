@@ -1,4 +1,5 @@
-using NUnit.Framework;
+﻿using NUnit.Framework;
+using SlippingCards.HelperClasses;
 using SlippingCards.Models;
 using System;
 using System.Collections.Generic;
@@ -14,15 +15,75 @@ namespace SlippingCards_Tests
         }
 
         [Test]
-        public void CreateCard_AssertEqual_ReturnsTrue()
+        public void CreateCardsetFromFile_AssertEqual_ReturnsTrue()
         {
             TextReader textReader = new StreamReader("SlippingCards_template.txt");
-            var card = new Card();
-            var cardTemplate = GetTemplateCard();
+            var cardSet = CardsetLoaderHelper.LoadCardset(textReader.ReadToEnd());
+            var cardSetTemplate = GetTemplateCardset();
+
+            const int totalSections = 3;
+            const int totalCards = 23;
 
 
+            int sectionsCount = cardSet.Sections.Count;
 
-            Assert.Equals(card, cardTemplate);
+            int cardsCount = 0;
+            foreach(var section in cardSet.Sections)
+            {
+                cardsCount += section.Cards.Count;
+            }
+
+
+            Assert.AreEqual(sectionsCount, totalSections);
+            Assert.AreEqual(cardsCount, totalCards);
+        }
+
+        [Test]
+        public void CreateCardFromTextWithoutImage_AssertEqual_ReturnsTrue()
+        {
+            var text = "Hello World: This is the first frase you use to learn how to program.";
+            var cardResult = new Card(text);
+            var cardTemplate = new Card()
+            {
+                Image = "🗃",
+                Title = "Hello World",
+                Text = "This is the first frase you use to learn how to program."
+            };
+
+            Assert.AreEqual(cardResult, cardTemplate);
+        }
+
+        [Test]
+        public void CreateSectionFromTextNoCard_AssertOneSectionCreated_ReturnsTrue()
+        {
+            var text = "This is a section\n----";
+            var cardset = CardsetLoaderHelper.LoadCardset(text);
+
+            int howManySectionsWhereCreated = 0;
+            if (cardset.Sections.Count != 1) Assert.Fail("There were more sections than expected.");
+            foreach(var section in cardset.Sections)
+            {
+                if (section.Title == "This is a section") howManySectionsWhereCreated++;
+            }
+
+            Assert.AreEqual(howManySectionsWhereCreated, 1);
+        }
+
+        [Test]
+        public void CreateSectionFromTextWithTrailinChars_AssertOneSectionCreated_ReturnsTrue()
+        {
+            // Oops, we slipped a card in a place that it shouldn't be. No \n after the hyphens.
+            var text = "This is a section\n----This is a card: Should not be here.";
+            var cardset = CardsetLoaderHelper.LoadCardset(text);
+
+            int howManySectionsWhereCreated = 0;
+            if (cardset.Sections.Count != 1) Assert.Fail("There were more sections than expected.");
+            foreach (var section in cardset.Sections)
+            {
+                if (section.Title == "This is a section") howManySectionsWhereCreated++;
+            }
+
+            Assert.AreEqual(howManySectionsWhereCreated, 1);
         }
 
         private Card GetTemplateCard()
@@ -95,7 +156,7 @@ namespace SlippingCards_Tests
                             {
                                 Id = 7,
                                 Title = "Bridge",
-                                Text = "Separates an object�s interface from its implementation."
+                                Text = "Separates an object’s interface from its implementation."
                             },
                             new Card()
                             {
