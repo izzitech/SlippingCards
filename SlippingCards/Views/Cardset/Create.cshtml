@@ -6,12 +6,12 @@
 
 <div class="container">
     <h1>@Model.Name</h1>
-        @foreach(var section in Model.Sections)
+        @foreach(var thisSection in Model.Sections)
         {
             <section>
-                <h1 class="slipping-section-title">Creational Patterns</h1>
+                <h1 class="slipping-section-title">@thisSection.Title</h1>
                 <div class="slipping-section-container">
-                    @foreach (var card in section.Cards)
+                    @foreach (var card in thisSection.Cards)
                     {
                         <div class="slipping-card">
                             <div class="slipping-card-inner">
@@ -19,7 +19,7 @@
                                     <div class="slipping-card-img">
                                         @card.Image
                                     </div>
-                                    <div class="slipping-card-title">@card.Title.</div>
+                                    <div class="slipping-card-title">@card.Title</div>
                                 </div>
                                 <div class="slipping-card-back">
                                     <div class="slipping-card-text">@card.Text</div>

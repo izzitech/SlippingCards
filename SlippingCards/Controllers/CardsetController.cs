@@ -6,12 +6,19 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SlippingCards.HelperClasses;
 using SlippingCards.Models;
+using SlippingCards.ViewModel;
 
 namespace SlippingCards.Controllers
 {
     public class CardsetController : Controller
     {
-        public IActionResult Create()
+        public IActionResult Create(CardLoaderViewModel cardsetData)
+        {
+            var cardset = CardsetLoaderHelper.LoadCardset(cardsetData.CardSetText);
+            return View(cardset);
+        }
+
+        public IActionResult CreateTemplate()
         {
             TextReader cardsetTemplate = 
                 new StreamReader(
@@ -19,7 +26,7 @@ namespace SlippingCards.Controllers
                         AppDomain.CurrentDomain.BaseDirectory,
                         "SlippingCards_template.txt"));
             var cardset = CardsetLoaderHelper.LoadCardset(cardsetTemplate.ReadToEnd());
-            return View(cardset);
+            return View("Create", cardset);
         }
     }
 }

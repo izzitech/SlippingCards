@@ -20,8 +20,9 @@
     <h4>
         Study smarter with cards. Write a concept on one side and the explanation on the other, then slip it.
     </h4>
-    <form class="form-group" asp-action="Create" asp-controller="Cardset">
-        @Html.TextAreaFor(model => model.CardSetText, new { @rows = 20, @cols = 100, @class = "form-control", @placeholder = cardsetTextAreaPlaceholder })
+    <form class="form-group" asp-controller="Cardset" asp-action="Create">
+        @Html.TextAreaFor(model => model.CardSetText, new { @rows = 15, @class = "form-control", @placeholder = cardsetTextAreaPlaceholder })
         <input value="Create" type="submit" class="btn btn-primary mt-4" />
     </form>
+    <a asp-controller="Cardset" asp-action="CreateTemplate" class="nav-link">Create template</a>
 </div>
