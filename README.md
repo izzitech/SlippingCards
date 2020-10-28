@@ -9,6 +9,7 @@ Study smarter with cards. Write a concept on one side and the explanation on the
 - [ ] Allow users to create an account and save cardset.
 - [ ] Show a card from a specific cardset at random.
 - [ ] Javascript UI to create cards graphically and rearrange them dynamically.
+- [ ] Let users upload pictures for cards.
 
 # How does it work
 
