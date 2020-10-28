@@ -15,7 +15,7 @@ namespace SlippingCards_Tests
         }
 
         [Test]
-        public void CreateCardsetFromFile_AssertEqual_ReturnsTrue()
+        public void CreateCardsetFromFile_AssertSectionsAndCardsCountEquals_ReturnsTrue()
         {
             TextReader textReader = new StreamReader("SlippingCards_template.txt");
             var cardSet = CardsetLoaderHelper.LoadCardset(textReader.ReadToEnd());
