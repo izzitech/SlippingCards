@@ -1,64 +1,4 @@
-﻿/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-    display: block;
-}
-
-body {
-    line-height: 1;
-}
-
-ol, ul {
-    list-style: none;
-}
-
-blockquote, q {
-    quotes: none;
-}
-
-    blockquote:before, blockquote:after,
-    q:before, q:after {
-        content: '';
-        content: none;
-    }
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-/* END CSS RESET */
-
-* {
-    box-sizing: border-box;
-}
-
-/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
 a.navbar-brand {
@@ -86,9 +26,7 @@ a {
 
 /* Sticky footer styles
 -------------------------------------------------- */
-html {
-  font-size: 14px;
-}
+
 @media (min-width: 768px) {
   html {
     font-size: 16px;
@@ -137,15 +75,15 @@ section {
     overflow: hidden;
 }
 
-    section h1 {
-        font-size: 2em;
-        margin-top: 20px;
-        margin-left: 20px;
-        margin-right: 20px;
-        border-bottom: gainsboro 4px solid;
-    }
+section h1 {
+    font-size: 2em;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-bottom: gainsboro 4px solid;
+}
 
-.card {
+.slipping-card {
     float: left;
     width: 300px;
     height: 200px;
@@ -154,7 +92,7 @@ section {
     perspective: 1000px;
 }
 
-.card-inner {
+.slipping-card-inner {
     background-color: transparent;
     position: relative;
     width: 100%;
@@ -165,11 +103,11 @@ section {
     transform-style: preserve-3d;
 }
 
-.card:hover .card-inner {
+.slipping-card:hover .slipping-card-inner {
     transform: rotateY(180deg);
 }
 
-.card-front, .card-back {
+.slipping-card-front, .slipping-card-back {
     padding: 25px;
     border-radius: 10px;
     position: absolute;
@@ -178,20 +116,26 @@ section {
     backface-visibility: hidden;
 }
 
-.card-front {
+.slipping-card-front {
     background-color: linen;
 }
 
-.card-back {
+.slipping-card-back {
     background-color: silver;
     transform: rotateY(180deg);
 }
 
-.card-title {
+.slipping-card-title {
     font-size: 1.3em;
 }
 
-.card img {
+
+.slipping-card-img {
+    font-size: 3em;
+    margin-bottom: 5px;
+}
+
+.slipping-card-img img {
     width: 50px;
     margin: 20px 0;
 }

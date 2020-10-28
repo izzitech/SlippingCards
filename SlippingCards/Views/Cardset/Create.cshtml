@@ -9,20 +9,20 @@
         @foreach(var section in Model.Sections)
         {
             <section>
-                <h1 class="section-title">Creational Patterns</h1>
-                <div class="section-container">
+                <h1 class="slipping-section-title">Creational Patterns</h1>
+                <div class="slipping-section-container">
                     @foreach (var card in section.Cards)
                     {
-                        <div class="card">
-                            <div class="card-inner">
-                                <div class="card-front">
-                                    <div class="card-img">
-                                        <h1>@card.Image</h1>
+                        <div class="slipping-card">
+                            <div class="slipping-card-inner">
+                                <div class="slipping-card-front">
+                                    <div class="slipping-card-img">
+                                        @card.Image
                                     </div>
-                                    <div class="card-title">@card.Title.</div>
+                                    <div class="slipping-card-title">@card.Title.</div>
                                 </div>
-                                <div class="card-back">
-                                    <div class="card-text">@card.Text</div>
+                                <div class="slipping-card-back">
+                                    <div class="slipping-card-text">@card.Text</div>
                                 </div>
                             </div>
                         </div>
