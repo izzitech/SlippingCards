@@ -1,6 +1,16 @@
 ﻿@model SlippingCards.ViewModel.CardLoaderViewModel 
 @{
     ViewData["Title"] = "Home Page";
+
+    var cardsetTextAreaPlaceholder =
+        $"This is the Cardset Title" + "\n" +
+        $"====" + "\n" +
+        $"" + "\n" +
+        $"This is a Section" + "\n" +
+        $"----" + "\n" +
+        $"" + "\n" +
+        $"Card title: Card text." + "\n" +
+        $"Another card title: Another card text.";
 }
 
 <div class="text-center">
@@ -10,7 +20,8 @@
     <h4>
         Study smarter with cards. Write a concept on one side and the explanation on the other, then slip it.
     </h4>
-    <form class="form-group">
-        @Html.TextAreaFor(model => model.CardSetText, new { @rows = 20, @cols = 100, @class = "form-control" });
+    <form class="form-group" asp-action="Create" asp-controller="Cardset">
+        @Html.TextAreaFor(model => model.CardSetText, new { @rows = 20, @cols = 100, @class = "form-control", @placeholder = cardsetTextAreaPlaceholder })
+        <input value="Create" type="submit" class="btn btn-primary mt-4" />
     </form>
 </div>
