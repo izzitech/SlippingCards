@@ -1,9 +1,11 @@
 # SlippingCards
 
 Study smarter with cards. Write a concept on one side and the explanation on the other, then slip it.
+![](readme-img/show.gif)
 ![](readme-img/screenshot-001.png)
 
-# Roadmap
+
+## Roadmap
 
 - [ ] Load text cardset and display them.
 - [ ] Allow users to create an account and save cardset.
@@ -11,7 +13,7 @@ Study smarter with cards. Write a concept on one side and the explanation on the
 - [ ] Javascript UI to create cards graphically and rearrange them dynamically.
 - [ ] Let users upload pictures for cards.
 
-# How does it work
+## How does it work
 
 You can load a text with the folowing format:
 
