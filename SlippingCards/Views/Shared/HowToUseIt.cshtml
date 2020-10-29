@@ -1,0 +1,65 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h1>How to use it</h1>
+<p>Just write on the text area like if it where a note.</p>
+<p>You should write the card collection title with = (equal signs) bellow. 4 or more characters is fine.</p>
+<p>Like this:</p>
+<pre>
+
+This is the collection title
+============================
+
+</pre>
+
+<p>Each section should be followed by - (hyphens).</p>
+<p>Like this:</p>
+<pre>
+
+This is a section
+-----------------
+
+</pre>
+
+<p>Finally, each card is just like a dictionary, splitted by : (colon).</p>
+<p>Like this:</p>
+<pre>
+
+Term: definition.
+
+</pre>
+
+Writing this you will get:
+
+<hr />
+
+<h1>This is the collection title</h1>
+<section>
+    <h1 class="slipping-section-title">This is a section</h1>
+    <div class="slipping-section-container">
+        <div class="slipping-card">
+            <div class="slipping-card-inner">
+                <div class="slipping-card-front">
+                    <div class="slipping-card-img">
+                        🗃
+                    </div>
+                    <div class="slipping-card-title">Term</div>
+                    </div>
+                    <div class="slipping-card-back">
+                        <div class="slipping-card-text">definition.</div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</section>
+
+<hr />
+
+<div class="card">
+    <div class="card-body">
+        <img src="../img/show.gif" style="width:100%;"/>
+    </div>
+</div>

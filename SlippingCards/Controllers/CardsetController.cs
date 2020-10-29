@@ -14,8 +14,15 @@ namespace SlippingCards.Controllers
     {
         public IActionResult Create(CardLoaderViewModel cardsetData)
         {
-            var cardset = CardsetLoaderHelper.LoadCardset(cardsetData.CardSetText);
-            return View(cardset);
+            try
+            {
+                var cardset = CardsetLoaderHelper.LoadCardset(cardsetData.CardSetText);
+                return View(cardset);
+            }
+            catch (Exception ex)
+            {
+                return View("HowToUseIt");
+            }
         }
 
         public IActionResult CreateTemplate()
