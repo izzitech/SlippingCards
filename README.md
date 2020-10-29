@@ -30,4 +30,4 @@ Another card title: Another card text.
 
 There is a template named SlippingCards_template.txt inside this repo.
 
-To define a title, it should have an underscore with at least 4 characters.
+Hyphens and equal signs should be at least 4 characters.
