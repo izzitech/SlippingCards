@@ -2,7 +2,7 @@
 
 Study smarter with cards. Write a concept on one side and the explanation on the other, then slip it.
 
-You can host this on your own server or just use it on cards.izzitech.com.ar
+You can host this on your own server or [just use it here.](cards.izzitech.com.ar)
 
 ![](readme-img/show.gif)
 
